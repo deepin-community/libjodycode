@@ -1,4 +1,4 @@
-libjodycode.so.3 libjodycode3t64 #MINVER#
+libjodycode.so.3 libjodycode3 #MINVER#
 * Build-Depends-Package: libjodycode-dev
  jc_alarm_ring@Base 3.0.1
  jc_api_featurelevel@Base 3.0.1
