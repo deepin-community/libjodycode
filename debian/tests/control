@@ -1,0 +1,10 @@
+Test-Command: cp -a debian/tests/files/ $AUTOPKGTEST_TMP;
+              jdupes -@1AHiprls $AUTOPKGTEST_TMP/files;
+              tree -C $AUTOPKGTEST_TMP/ | grep -C50 list1| grep -C50 list7
+Depends: libjodycode3t64, jdupes (>= 1.25.0-1), tree:native
+
+Test-Command: cp -a debian/tests/files/ $AUTOPKGTEST_TMP;
+              jdupes -@rdNQzo time  -X size+:15 $AUTOPKGTEST_TMP/files;
+              tree -C $AUTOPKGTEST_TMP/ | grep -C50 files
+Depends: libjodycode3t64, jdupes (>= 1.25.0-1), tree:native
+Restrictions: allow-stderr

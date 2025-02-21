@@ -1,15 +1,44 @@
-Source: template-repository
-Section: unknown
+Source: libjodycode
+Section: libs
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Joao Eriberto Mota Filho <eriberto@debian.org>
+Rules-Requires-Root: no
+Build-Depends: dpkg-dev (>= 1.22.5), debhelper-compat (= 13)
+Standards-Version: 4.7.0
+Homepage: https://codeberg.org/jbruchon/libjodycode
+Vcs-Browser: https://salsa.debian.org/debian/libjodycode
+Vcs-Git: https://salsa.debian.org/debian/libjodycode.git
 
-Package: template-repository
+Package: libjodycode3t64
+Provides: ${t64:Provides}
 Architecture: any
+Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Replaces: libjodycode3, libjodycode2 (<= 2.0.1-4)
+Breaks: libjodycode3 (<< ${source:Version}), libjodycode2 (<= 2.0.1-4)
+Description: shared lib for programs written by Jody Bruchon (runtime)
+ libjodycode is a software code library containing code shared among several
+ of the programs written by Jody Bruchon such as imagepile, jdupes, winregfs,
+ and zeromerge. These shared pieces of code were copied between each program
+ as they were updated. As the number of programs increased and keeping these
+ pieces of code synced became more annoying, the decision was made to combine
+ all of them into a single reusable shared library.
+ .
+ This package provides the runtime for libjodycode.
+
+Package: libjodycode-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends: ${misc:Depends}, libjodycode3t64 (= ${binary:Version})
+Replaces: libjodycode2-dev (<= 2.0.1-4), libjodycode3-dev (<= 3.0.1-2)
+Breaks: libjodycode2-dev (<= 2.0.1-4), libjodycode3-dev (<= 3.0.1-2)
+Description: shared lib for programs written by Jody Bruchon (development files)
+ libjodycode is a software code library containing code shared among several
+ of the programs written by Jody Bruchon such as imagepile, jdupes, winregfs,
+ and zeromerge. These shared pieces of code were copied between each program
+ as they were updated. As the number of programs increased and keeping these
+ pieces of code synced became more annoying, the decision was made to combine
+ all of them into a single reusable shared library.
+ .
+ This package provides the development files for libjodycode.
