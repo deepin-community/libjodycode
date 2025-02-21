@@ -1,5 +1,167 @@
-template-repository (1.0-1) unstable; urgency=medium
+libjodycode (3.1.1-2) unstable; urgency=medium
 
-  * Initial release
+  * Upload to unstable.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Fri, 02 Aug 2024 14:35:24 -0300
+
+libjodycode (3.1.1-1) experimental; urgency=medium
+
+  * New upstream version 3.1.1.
+  * debian/control: bumped Standards-Version to 4.7.0.
+  * debian/copyright:
+      - Added new rights in packaging stanza.
+      - Removed a reference for orig_headers/jody_oom.h, no longer in source
+        code.
+      - Updated upstream and packaging copyright years.
+  * debian/libjodycode3t64.lintian-overrides: removed. The upstream fixed the
+    source code. Thanks!
+  * debian/libjodycode3t64.symbols: added a new symbol.
+  * debian/tests/control: using libjodycode3t64 as dependency. Thanks to
+    Matthias Klose <doko@ubuntu.com>.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Fri, 02 Aug 2024 00:49:01 -0300
+
+libjodycode (3.1-6.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Rename libraries for 64-bit time_t transition.  Closes: #1062385
+
+ -- Benjamin Drung <bdrung@debian.org>  Wed, 28 Feb 2024 13:29:05 +0000
+
+libjodycode (3.1-6) unstable; urgency=medium
+
+  * jdupes has a new repository (Codeberg). Consequently:
+      - debian/control: updated the Homepage field.
+      - debian/copyright: updated Upstream-Contact and Source fields.
+      - debian/upstream/metadata: updated all data.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Tue, 14 Nov 2023 10:54:49 -0300
+
+libjodycode (3.1-5) unstable; urgency=medium
+
+  * debian/watch: updated because the upstream moved the project from GitHub
+    to Codeberg.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Fri, 06 Oct 2023 21:56:55 -0300
+
+libjodycode (3.1-4) unstable; urgency=medium
+
+  * debian/libjodycode3.symbols: changed the tags of the last four symbols from
+    "optional" to "arch=amd64".
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Tue, 08 Aug 2023 12:52:16 -0300
+
+libjodycode (3.1-3) unstable; urgency=medium
+
+  [ Joao Eriberto Mota Filho ]
+  * debian/copyright: added Pino Toscano to debian/* block.
+
+  [ Pino Toscano ]
+  * debian/libjodycode3.symbols: mark the jc_get_proc_cacheinfo symbol as
+    linux-any, as that function is implemented only on Linux.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Wed, 12 Jul 2023 15:41:42 -0300
+
+libjodycode (3.1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Sat, 08 Jul 2023 10:57:05 -0300
+
+libjodycode (3.1-1) experimental; urgency=medium
+
+  * New upstream version 3.1.
+  * debian/patches/010_add-GCC-hardening.patch: removed because the upstream
+    fixed the source code. Thanks!
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Fri, 07 Jul 2023 13:19:44 -0300
+
+libjodycode (3.0.1-4) unstable; urgency=medium
+
+  * Upload to unstable.
+  * debian/patches/010_add-GCC-hardening.patch: fixed the Forwarded field.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Sat, 24 Jun 2023 08:15:14 -0300
+
+libjodycode (3.0.1-3) experimental; urgency=medium
+
+  * Solving some mistakes in packaging of this lib. Consequently:
+      - debian/control:
+          ~ Dropped transitional packages libjodycode2-dev and libjodycode2.
+          ~ Renamed libjodycode3-dev to libjodycode-dev.
+      - debian/libjodycode3-dev.install: renamed to libjodycode-dev.install.
+      - debian/libjodycode3.symbols: updated the Build-Depends-Package field.
+      - Thanks to Adrian Bunk <bunk@debian.org>.
+      - Closes: #1038752
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Wed, 21 Jun 2023 23:26:52 -0300
+
+libjodycode (3.0.1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Tue, 20 Jun 2023 07:24:12 -0300
+
+libjodycode (3.0.1-1) experimental; urgency=medium
+
+  * New upstream version 3.0.1.
+  * The upstream renamed libjodycode2 to libjodycode3. Consequently:
+      - debian/control:
+          ~ Created new stanzas for the new binaries libjodycode3 and
+            libjodycode3-dev.
+          ~ Transformed the old stanzas libjodycode2 and libjodycode2-dev
+            in transitional dummy packages.
+      - debian/libjodycode2-dev.install: renamed to
+        debian/libjodycode3-dev.install.
+      - debian/libjodycode2.docs: renamed to debian/libjodycode3.docs.
+      - debian/libjodycode2.install: renamed to debian/libjodycode3.install.
+      - debian/libjodycode2.symbols:
+          ~ Renamed to debian/libjodycode3.symbols.
+          ~ Regenerated all symbols.
+  * debian/control: set libjodycode3-dev as 'Multi-Arch: same'.
+  * debian/copyright: updated data about upstream copyright. Details:
+      - Added orig_headers/jody_oom.h to "CC0-1.0 or Public-Domain" stanza.
+      - Created a new stanza called "Public Domain" for files
+        helper_code/libjodycode_apiver.c and likely_unlikely.h.
+      - Removed oom.c from the "CC0-1.0 or Public-Domain" stanza because the
+        upstream re-licensed this file to Expat.
+  * debian/patches/010_add-GCC-hardening.patch: updated. The upstream fixed the
+    source code, but the new version of the lib needs a new adjustment.
+  * debian/rules: re-enabled the dh_auto_test and installation of the manpage
+    because the upstream fixed the source code. Thanks!
+  * debian/tests/control:
+      - Bumped the jdupes relationship to 1.25.0-1.
+      - Depending explicitly of the libjodycode3.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Sun, 18 Jun 2023 14:34:56 -0300
+
+libjodycode (2.0.1-4) unstable; urgency=medium
+
+  * Added CI tests using jdupes command to call libjodycode. Consequently:
+      - debian/source/include-binaries: created to allow binaries in CI tests.
+      - debian/tests/*: created to provide CI tests.
+  * debian/control: set libjodycode2 as 'Multi-Arch: same'.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Sat, 17 Jun 2023 00:57:51 -0300
+
+libjodycode (2.0.1-3) unstable; urgency=medium
+
+  * debian/libjodycode2.symbols: set four symbols as optional because they
+    seem specific for amd64. Optional is better than amd64 because this makes
+    these symbols not so restricts.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Thu, 15 Jun 2023 19:08:45 -0300
+
+libjodycode (2.0.1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+  * debian/libjodycode2.symbols: temporarily disabled the symbol tags to
+    discover the issues for each architecture.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Thu, 15 Jun 2023 13:35:30 -0300
+
+libjodycode (2.0.1-1) experimental; urgency=medium
+
+  * Initial release. (Closes: #1037451)
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Mon, 12 Jun 2023 20:41:03 -0300
