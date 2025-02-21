@@ -3,19 +3,18 @@ Section: libs
 Priority: optional
 Maintainer: Joao Eriberto Mota Filho <eriberto@debian.org>
 Rules-Requires-Root: no
-Build-Depends: dpkg-dev (>= 1.22.5), debhelper-compat (= 13)
+Build-Depends: debhelper-compat (= 13)
 Standards-Version: 4.7.0
 Homepage: https://codeberg.org/jbruchon/libjodycode
 Vcs-Browser: https://salsa.debian.org/debian/libjodycode
 Vcs-Git: https://salsa.debian.org/debian/libjodycode.git
 
-Package: libjodycode3t64
-Provides: ${t64:Provides}
+Package: libjodycode3
 Architecture: any
 Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: libjodycode3, libjodycode2 (<= 2.0.1-4)
-Breaks: libjodycode3 (<< ${source:Version}), libjodycode2 (<= 2.0.1-4)
+Replaces: libjodycode2 (<= 2.0.1-4)
+Breaks: libjodycode2 (<= 2.0.1-4)
 Description: shared lib for programs written by Jody Bruchon (runtime)
  libjodycode is a software code library containing code shared among several
  of the programs written by Jody Bruchon such as imagepile, jdupes, winregfs,
@@ -30,7 +29,7 @@ Package: libjodycode-dev
 Architecture: any
 Multi-Arch: same
 Section: libdevel
-Depends: ${misc:Depends}, libjodycode3t64 (= ${binary:Version})
+Depends: ${misc:Depends}, libjodycode3 (= ${binary:Version})
 Replaces: libjodycode2-dev (<= 2.0.1-4), libjodycode3-dev (<= 3.0.1-2)
 Breaks: libjodycode2-dev (<= 2.0.1-4), libjodycode3-dev (<= 3.0.1-2)
 Description: shared lib for programs written by Jody Bruchon (development files)

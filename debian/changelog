@@ -1,3 +1,9 @@
+libjodycode (3.1.1-2deepin1) unstable; urgency=medium
+
+  * Revert 64-bit time_t changes.
+
+ -- Tianyu Chen <sweetyfish@deepin.org>  Fri, 21 Feb 2025 16:31:55 +0800
+
 libjodycode (3.1.1-2) unstable; urgency=medium
 
   * Upload to unstable.
